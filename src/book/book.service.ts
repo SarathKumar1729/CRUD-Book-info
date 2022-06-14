@@ -29,7 +29,7 @@ export class BookService {
         const exists =(await this.bookRepository.count({ where: { name: Bookdto.name }, })) != 0 ? true : false;
     
         if (exists) {
-          throw new HttpException('Book ID already exists', 403);
+          throw new HttpException('Book Name already exists', 403);
         }
         this.bookRepository.save(Bookdto);
         return {

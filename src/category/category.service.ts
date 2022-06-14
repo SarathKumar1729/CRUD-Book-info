@@ -21,7 +21,7 @@ export class CategoryService {
         const exists =(await this.categoryRepository.count({ where: { name: CategoryDto.name }, })) != 0 ? true : false;
     
         if (exists) {
-          throw new HttpException('Book ID already exists', 403);
+          throw new HttpException('Category Name already exists', 403);
         }
         this.categoryRepository.save(CategoryDto);
         return {

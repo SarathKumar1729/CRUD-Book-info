@@ -20,7 +20,7 @@ export class AuthorService {
         const exists =(await this.authorRepository.count({ where: { name: AuthorDto.name }, })) != 0 ? true : false;
     
         if (exists) {
-          throw new HttpException('Book ID already exists', 403);
+          throw new HttpException('Author Name already exists', 403);
         }
         this.authorRepository.save(AuthorDto);
         return {
